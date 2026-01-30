@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Conteneur principal des cartes de films */
+.movie-list-container {
+  display: flex;
+  flex-wrap: wrap;           /* pour aller à la ligne si nécessaire */
+  justify-content: center;   /* centre horizontalement toutes les cartes */
+  gap: 20px;                 /* espace entre les cartes */
+  margin-top: 30px;
+}
+
+/* Chaque carte de film */
+.movie-card {
+  width: 220px;              /* largeur fixe pour aligner toutes les cartes */
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover sur la carte pour effet visuel */
+.movie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Affiche du film */
+.movie-card img {
+  width: 150px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* Titre et année */
+.movie-card h3 {
+  font-size: 16px;
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+/* Détails du film */
+.movie-details {
+  font-size: 13px;
+  text-align: left;          /* détails alignés à gauche dans la carte */
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+/* Résumé */
+.movie-plot {
+  margin-top: 8px;
+  font-style: italic;
+  font-size: 12px;
+  color: #555;
+}
