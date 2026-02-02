@@ -1,22 +1,29 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Injproducts {
-  constructor() {}
-  // Set item in local storage
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  private isBrowser(): boolean {
+    return isPlatformBrowser(this.platformId);
+  }
+
   setItem(key: string, value: any): void {
+    if (!this.isBrowser()) return;
+
     try {
-      const jsonValue = JSON.stringify(value);
-      localStorage.setItem(key, jsonValue);
+      localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
       console.error('Error saving to local storage', error);
     }
   }
 
-  // Get item from local storage
   getItem<T>(key: string): T | null {
+    if (!this.isBrowser()) return null;
+
     try {
       const value = localStorage.getItem(key);
       return value ? JSON.parse(value) : null;
@@ -25,12 +32,16 @@ export class Injproducts {
       return null;
     }
   }
-  // Remove item from local storage
+
   removeItem(key: string): void {
-    localStorage.removeItem(key);
+    if (this.isBrowser()) {
+      localStorage.removeItem(key);
+    }
   }
-  // Clear all local storage
+
   clear(): void {
-    localStorage.clear();
+    if (this.isBrowser()) {
+      localStorage.clear();
+    }
   }
 }

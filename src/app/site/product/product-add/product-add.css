@@ -1,0 +1,26 @@
+.product-form-wrapper {
+  max-width: 700px;      
+  margin: 60px auto;     
+  padding: 0 20px;       
+}
+
+.product-form-wrapper .card {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.product-form-wrapper .form-group {
+  margin-bottom: 20px;
+}
+
+.product-form-wrapper label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.product-form-wrapper button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border-radius: 8px;
+}

@@ -21,4 +21,12 @@ export class ProductGet implements OnInit {
     const savedProducts = this.lss.getItem<Product[]>('products');
     this.products = savedProducts ?? [];
   }
+
+  deleteProduct(id: number) {
+    const confirmDelete = confirm('Supprimer ce produit ?');
+    if (!confirmDelete) return;
+
+    this.products = this.products.filter(p => p.id !== id);
+    this.lss.setItem('products', this.products);
+  }
 }
